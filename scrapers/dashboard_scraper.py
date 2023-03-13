@@ -7,8 +7,8 @@ html = response.content
 print(html)
 
 soup = BeautifulSoup(html, features="html.parser")
-table = soup.find('sr-only')
+table = soup.find('tbody')
 
-for row in table.find_all('data-modal'):
+for row in table.find_all('tr'):
     for cell in row.find_all('td'):
         print(cell.text)
