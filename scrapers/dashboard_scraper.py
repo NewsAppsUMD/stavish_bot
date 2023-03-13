@@ -10,5 +10,8 @@ soup = BeautifulSoup(html, features="html.parser")
 table = soup.find('tbody')
 
 for row in table.find_all('tr'):
+    list_of_cells = []
     for cell in row.find_all('td'):
-        print(cell.text)
+        text = cell.text.strip()
+        list_of_cells.append(text)
+    print(list_of_cells)
