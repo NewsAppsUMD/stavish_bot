@@ -1,2 +1,2 @@
-# dashboard_bot
+# stavish_bot
 creating a slackbot that scrapes UMD dashboards
