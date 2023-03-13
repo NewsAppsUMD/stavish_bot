@@ -7,4 +7,5 @@ html = response.content
 print(html)
 
 soup = BeautifulSoup(html, features="html.parser")
-print(soup.prettify())
+table = soup.find('data-issue')
+print(table.prettify())
