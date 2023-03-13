@@ -8,4 +8,6 @@ print(html)
 
 soup = BeautifulSoup(html, features="html.parser")
 table = soup.find('sr-only')
-print(table.prettify())
+
+for row in table.find_all('data-modal'):
+    print(row.prettify())
