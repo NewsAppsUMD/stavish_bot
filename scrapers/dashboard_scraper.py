@@ -10,4 +10,5 @@ soup = BeautifulSoup(html, features="html.parser")
 table = soup.find('sr-only')
 
 for row in table.find_all('data-modal'):
-    print(row.prettify())
+    for cell in row.find_all('td'):
+        print(cell.text)
