@@ -7,5 +7,5 @@ html = response.content
 print(html)
 
 soup = BeautifulSoup(html, features="html.parser")
-table = soup.find('data-issue')
+table = soup.find('sr-only')
 print(table.prettify())
