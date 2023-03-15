@@ -10,7 +10,7 @@ heading = soup.find_all(id = "main")
 number = []
 for elem in heading:
   #finding the < a > tag
-   cards = elem.find_all("span")
+   cards = elem.find_all("div")
 #getting the text inside the < a > tag
 for i in cards:
   number.append(i.string)
