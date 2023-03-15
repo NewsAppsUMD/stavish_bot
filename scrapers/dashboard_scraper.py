@@ -7,7 +7,6 @@ html = response.content
 
 soup = BeautifulSoup(html, features="html.parser")
 heading = soup.find_all(id = "main")
-print(heading.text)
 
 for ele in heading:
   print(heading.find("main"))
