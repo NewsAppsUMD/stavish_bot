@@ -6,4 +6,5 @@ response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
 html = response.content
 
 soup = BeautifulSoup(html, features="html.parser")
-print(soup.prettify())
+table = soup.find('small-san-serif')
+print(table.prettify())
