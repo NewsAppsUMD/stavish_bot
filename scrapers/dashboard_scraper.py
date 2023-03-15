@@ -7,4 +7,4 @@ html = response.content
 
 soup = BeautifulSoup(html, features="html.parser")
 heading = soup.find(id = "main")
-print(heading)
+print(heading.text)
