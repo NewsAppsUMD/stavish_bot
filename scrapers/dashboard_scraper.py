@@ -10,4 +10,4 @@ heading = soup.find_all(id = "main")
 print(heading.text)
 
 for ele in heading:
-  print(heading.find_all("main"))
+  print(soup.find_all("main"))
