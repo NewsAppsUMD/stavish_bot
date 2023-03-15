@@ -6,5 +6,5 @@ response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
 html = response.content
 
 soup = BeautifulSoup(html, features="html.parser")
-heading = soup.find_all(id = "main")
-print(heading)
+heading = soup.find(id = "main")
+print(heading.text)
