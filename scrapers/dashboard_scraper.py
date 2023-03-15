@@ -7,4 +7,4 @@ html = response.content
 
 soup = BeautifulSoup(html, features="html.parser")
 table = soup.find('data-issue-header')
-print(table.prettify())
+print(soup.prettify())
