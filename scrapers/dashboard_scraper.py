@@ -42,7 +42,7 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
         actions_text = ', '.join([a.text.strip() for a in actions])
 
         # Write the extracted information to the CSV file
-        writer.writerow([issues_text, title_text, partners_text, status_text, updated_text, actions_text])
+        writer.writerow([issues_text, titles_text, partners_text, status_text, updated_text, actions_text])
 
 print("Scraping complete.")
 
