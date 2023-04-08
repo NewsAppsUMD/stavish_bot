@@ -14,7 +14,7 @@ divs = soup.find_all("div", {"data-card": "details"})
 
 # Loop through each div and extract the desired information
 for div in divs:
-    issue = soup.find('span', {'aria-hidden': 'true'})
+    issue = soup.find_all("div", {"data-issue": "header"})
 
 print("Issue:", issue)
 
