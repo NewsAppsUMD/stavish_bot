@@ -9,5 +9,18 @@ response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
 
 data = requests.get(url)
 
-print(data.text)
+my_data = []
+
+html = BeautifulSoup(data.text, 'html.parser')
+articles = html.select('.details')
+
+for article in articles:
+
+    title = article.select('.header')[0].get_text()
+    excerpt = article.select('.small-san-serif')[0].get_text()
+    pub_date = article.select('.extra-small-san-serif')[0].get_text()
+
+    my_data.append({"title": title, "excerpt": excerpt, "pub_date": pub_date})
+
+pprint(my_data)
 
