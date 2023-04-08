@@ -29,8 +29,8 @@ for div in divs:
     updated = soup.find_all("div", {"data-issue": "date"})
     actions = soup.find_all("div", {"data-modal": "body"})
 
-        # Write the extracted information to the CSV file
-        writer.writerow([issue, title, partners, status, updated, actions])
+# Write the extracted information to the CSV file
+writer.writerow([issue, title, partners, status, updated, actions])
 
 print("Scraping complete.")
 
