@@ -32,10 +32,9 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
         update = []
         update_div = div.find("div", {"data-issue": "date"})
         update = [time.text.strip() for time in update_div.find_all("time")]
-        action = ''
+        action = []
         action_div = div.find("div", {"data-modal": "body"})
-        if action_div is not None:
-            action = action_div.text.strip()
+        action = [p.text.strip() for p in action_div.find_all("p")]
 
 
         issues_text = ', '.join([issue.strip() for issue in issues])
