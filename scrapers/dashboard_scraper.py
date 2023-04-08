@@ -24,7 +24,7 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
         for title in div.find_all("h3", {"data-issue-header": "title"}):
             titles.append(title.text.strip())
         partners = []
-        for partner in div.find_all("div", {"data-issue": "partners"})
+        for partner in div.find_all("div", {"data-issue": "partners"}):
         for partners_li in div.find_all("ul"):
             partners_li.append(partners_li.text.strip())
         partners = soup.find_all("div", {"data-issue": "partners"})
