@@ -35,6 +35,8 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
         action = []
         action_div = div.find("div", {"data-modal": "body"})
         action = '' if action_div is None else action_div.text.strip()
+
+    
         issues_text = ', '.join([issue.strip() for issue in issues])
         titles_text = ', '.join([title.strip() for title in titles])
         partners_div_text = ''
@@ -49,7 +51,7 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
         action_div_text = ''
         if action_div is not None:
             action_div_text = ', '.join([p.text.strip() for p in action_div.find_all("p")])
-        writer.writerow([issues_text, titles_text, partners_div_text, status_p_text, update_div_text, action_div_text])
+        writer.writerow([issues_text, titles_text, partners_div_text, status_p_text, update_div_text, action])
 
 print("Scraping complete.")
 
