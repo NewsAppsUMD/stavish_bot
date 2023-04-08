@@ -50,11 +50,11 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
         update_div_text = ''
         if update_div is not None:
             update_div_text = ', '.join([time.text.strip() for time in update_div.find_all("time")])
-            status_p_text = ''
+        actions_div_text = '' 
         if actions_div is not None:
             actions_div_text = ', '.join([p.text.strip() for p in actions_div.find_all("p")])
 
-        writer.writerow([issues_text, titles_text, partners_div_text, status_p_text, update_div_text, actions_div])
+        writer.writerow([issues_text, titles_text, partners_div_text, status_p_text, update_div_text, actions_div_text])
 
 print("Scraping complete.")
 
