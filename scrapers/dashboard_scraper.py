@@ -11,7 +11,7 @@ soup = BeautifulSoup(response.content, "html.parser")
 
 divs = soup.find_all("div", {"data-card": "details"})
 
-    print(divs)
+print(divs)
 
 
 
