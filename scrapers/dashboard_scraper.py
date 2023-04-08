@@ -25,7 +25,7 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
             titles.append(title.text.strip())
         actions = []
         actions_umd_modal = div.find("umd-modal", {"data-card": "modal"})
-        actions = [p.text.strip() for p in actions_umd_modal.find_all("p")]
+        actions = [p.text.strip() for p in actions_umd_modal.find("p")]
 
         actions_umd_modal_text = ''
         if actions_umd_modal is not None:
