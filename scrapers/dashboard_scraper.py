@@ -19,7 +19,7 @@ my_data = []
 
 
 html = BeautifulSoup(data.text, 'html.parser')
-articles = html.select('.main')
+articles = html.select('.critical_issues')
 
 
 for article in articles:
