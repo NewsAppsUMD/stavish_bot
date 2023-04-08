@@ -30,18 +30,22 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
         #this status one needs help
         status = soup.find_all("p", {"data-issue-status": "icon"})
         status_span = soup.find_all("span")
-        updated = soup.find_all("div", {"data-issue": "date"})
-        actions = soup.find_all("div", {"data-modal": "body"})
+        updated = []
+        for update in div.find_all("div", {"data-issue": "date"}):
+            updated.append(update.text.strip())
+        actions = []
+        for action in div.find_all("div", {"data-modal": "body"}):
+            actions.append(action.text.strip())
 
         # Extract the text from the BeautifulSoup objects
         issues_text = ', '.join([issue.strip() for issue in issues])
         titles_text = ', '.join([title.strip() for title in titles])
-        partners_li_text = ', '.join([partners_li.strip() for p in partners])
+        partners_li_text = ', '.join([partners_li.strip() for partner in partners])
         #partners_li_text = ', '.join([li.text.strip() for li in partners_li])
         status_text = ', '.join([s.text.strip() for s in status])
         status_span_text = ', '.join([sp.text.strip() for sp in status_span])
-        updated_text = ', '.join([u.text.strip() for u in updated])
-        actions_text = ', '.join([a.text.strip() for a in actions])
+        updated_text = ', '.join([update.strip() for update in updated])
+        actions_text = ', '.join([action.strip() for action in actions])
 
         # Write the extracted information to the CSV file
         writer.writerow([issues_text, titles_text, partners_li_text, status_text, updated_text, actions_text])
