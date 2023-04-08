@@ -20,7 +20,7 @@ for div in divs:
 
 print("Issue:", issue)
 print("Title:", title)
-print("Partners:", partner_li)
+print("Partners:", partners)
 
 
 
