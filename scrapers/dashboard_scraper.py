@@ -20,7 +20,9 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
         issues = []
         for issue in div.find_all("p", {"data-issue-header": "index"}):
             issues.append(issue.text.strip())
-        title = soup.find_all("h3", {"data-issue-header": "title"})
+        titles = []
+        for title in div.find_all("h3", {"data-issue-header": "title"})
+            titles.append(title.text.strip())
         partners = soup.find_all("div", {"data-issue": "partners"})
         partners_li = soup.find_all("ul")
         #this status one needs help
@@ -31,7 +33,7 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
 
         # Extract the text from the BeautifulSoup objects
         issues_text = ', '.join([issue.strip() for issue in issues])
-        title_text = ', '.join([t.text.strip() for t in title])
+        titles_text = ', '.join([title.strip() for title in titles])
         partners_text = ', '.join([p.text.strip() for p in partners])
         partners_li_text = ', '.join([li.text.strip() for li in partners_li])
         status_text = ', '.join([s.text.strip() for s in status])
