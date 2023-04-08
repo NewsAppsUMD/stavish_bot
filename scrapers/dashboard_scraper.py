@@ -41,7 +41,7 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
         actions = []
         action_umd_modal = div.find("div", {"data-modal": "body"})
         if action_umd_modal is not None:
-        actions = [p.text.strip() for p in action_umd_modal.find_all("p")]
+            actions = [p.text.strip() for p in action_umd_modal.find_all("p")]
 
         # now we joining shit so that we just got that text
 
