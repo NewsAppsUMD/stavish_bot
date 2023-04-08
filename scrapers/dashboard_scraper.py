@@ -62,7 +62,7 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
         if update_div is not None:
             update_div_text = ', '.join([time.text.strip() for time in update_div.find_all("time")])
         # action join
-        action_umd_modal_text = ', '.join([p.strip() for  in actions])
+        action_umd_modal_text = ', '.join([p.strip() for p in actions])
         if actions_div is not None:
             actions_div_text = ', '.join([p.text.strip() for p in actions_div.find_all("p")])
 
