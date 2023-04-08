@@ -23,7 +23,7 @@ partner_li = partners_div.find('li')
 
 print("Issue:", issue)
 print("Title:", title)
-print("Partners:", partners)
+print("Partners:", partner_li)
 
 
 
