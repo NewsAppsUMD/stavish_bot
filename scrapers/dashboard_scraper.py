@@ -19,7 +19,7 @@ my_data = []
 
 
 html = BeautifulSoup(data.text, 'html.parser')
-articles = html.select('.list')
+articles = html.select('d.list')
 
 
 for article in articles:
