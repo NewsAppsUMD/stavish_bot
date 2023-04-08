@@ -12,14 +12,10 @@ soup = BeautifulSoup(response.content, "html.parser")
 
 divs = soup.find_all("div", {"data-card": "details"})
 
-with open('25_demands_table.csv', 'w', newline='') as csvfile:
-    writer = csv.writer(csvfile)
-    writer.writerow(['Issue', 'Title', 'Partner', 'Status', 'Updated', 'Actions'])
-
     for div in divs:
-        #issue = []
-        for issue in soup.find_all("p", {"data-issue-header": "index"}):
-            issue.append(issue.get_text())
+        issue = ("p", {"data-issue-header": "index"}):
+            all_issue = [issue.text for issue in issue]
+            all_issue[0:25]
         title = soup.find_all("h3", {"data-issue-header": "title"})
         partners = soup.find_all("div", {"data-issue": "partners"})
         partners_li = soup.find_all("ul")
@@ -29,18 +25,13 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
         updated = soup.find_all("div", {"data-issue": "date"})
         actions = soup.find_all("div", {"data-modal": "body"})
 
-        # Write the extracted information to the CSV file
-        writer.writerow([issue, title, partners, status, updated, actions])
 
-print("Scraping complete.")
-
-
-#print("Issue:", issue)
-#print("Title:", title)
-#print("Partners:", partners_li)
-#print("Status:", status_span)
-#print("Updated:", updated)
-#print("Actions:", actions)
+print("Issue:", issue)
+print("Title:", title)
+print("Partners:", partners_li)
+print("Status:", status_span)
+print("Updated:", updated)
+print("Actions:", actions)
 
 
 
