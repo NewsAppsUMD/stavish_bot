@@ -30,7 +30,7 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
         actions = soup.find_all("div", {"data-modal": "body"})
 
         # Extract the text from the BeautifulSoup objects
-        issues_text = ', '.join([issue.text.strip() for issue in issues])
+        issues_text = ', '.join([issue.strip() for issue in issues])
         title_text = ', '.join([t.text.strip() for t in title])
         partners_text = ', '.join([p.text.strip() for p in partners])
         partners_li_text = ', '.join([li.text.strip() for li in partners_li])
