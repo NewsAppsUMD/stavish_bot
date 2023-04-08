@@ -28,6 +28,7 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
         status_span = soup.find_all("span")
         updated = soup.find_all("div", {"data-issue": "date"})
         actions = soup.find_all("div", {"data-modal": "body"})
+        actions.get_text()
 
         # Write the extracted information to the CSV file
         writer.writerow([issue, title, partners, status, updated, actions])
