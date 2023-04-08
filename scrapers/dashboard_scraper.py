@@ -18,9 +18,9 @@ for div in divs:
     title = soup.find_all("h3", {"data-issue-header": "title"})
 
 # Extract the partners from the <div> element with data-issue="partners"
-    partners_div = soup.find_all("div", {"data-issue": "partners"})
-    partners = [partner.text.strip() for partner in partners_soup.find_all("li")]
-    
+    partners_soup = soup.find_all("div", {"data-issue": "partners"})
+    partners = for partner in partners_soup.find_all("li")
+
 print("Issue:", issue)
 print("Title:", title)
 print("Partners:", partners)
