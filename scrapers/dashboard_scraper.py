@@ -67,7 +67,7 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
             action_umd_modal_text = ', '.join([p.text.strip() for p in action_umd_modal.find_all("p")])
 
 # write it out to csv
-        writer.writerow([issues_text, titles_text, partners_div_text, status_p_text, update_div_text, actions_umd_modal_text])
+        writer.writerow([issues_text, titles_text, partners_div_text, status_p_text, update_div_text, action_umd_modal_text])
 
 print("Scraping complete.")
 
