@@ -12,11 +12,10 @@ soup = BeautifulSoup(response.content, "html.parser")
 
 divs = soup.find_all("div", {"data-card": "details"})
 
-# Loop through each div and extract the desired information
-for div in divs:
-    issue = div.find("data-issue=").text.strip()
+span = soup.find('span', {'class': 'sr-only'})
+text = span.text.strip()
 
-print(divs)
+print(text)
 
 
 
