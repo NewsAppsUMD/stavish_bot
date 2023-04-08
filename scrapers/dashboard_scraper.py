@@ -24,8 +24,9 @@ for div in divs:
     updated = soup.find_all("div", {"data-issue": "date"})
     actions = soup.find_all("div", {"data-modal": "body"}).text.strip()
 
+issue_text = issue.get_text()
 
-print("Issue:", issue)
+print("Issue:", issue_text)
 print("Title:", title)
 print("Partners:", partners_li)
 print("Status:", status_span)
