@@ -17,7 +17,7 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
     writer.writerow(['Issue', 'Title', 'Partner', 'Status', 'Updated', 'Actions'])
 
     for div in divs:
-        issue = []
+        #issue = []
         for issue in soup.find_all("p", {"data-issue-header": "index"}):
             issue.append(issue.get_text())
         title = soup.find_all("h3", {"data-issue-header": "title"})
