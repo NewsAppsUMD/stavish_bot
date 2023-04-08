@@ -16,8 +16,8 @@ divs = soup.find_all("div", {"data-card": "details"})
 for div in divs:
     issue = soup.find_all("p", {"data-issue-header": "index"})
     title = soup.find_all("h3", {"data-issue-header": "title"})
-    partners_soup = soup.find_all("div", {"data-issue": "partners"})
-    partner_li = partners_soup.find_all('li')
+    partners_soup = soup.find("div", {"data-issue": "partners"})
+    partner_li = partners_soup.find('li')
 
 print("Issue:", issue)
 print("Title:", title)
