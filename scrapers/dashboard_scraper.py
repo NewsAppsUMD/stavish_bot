@@ -24,7 +24,7 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
         for title in div.find_all("h3", {"data-issue-header": "title"}):
             titles.append(title.text.strip())
         actions = []
-        for action in div.find_all("div", {"data-card": "modal"}):
+        for action in div.find_all("umd-modal", {"data-card": "modal"}):
             actions.append(action.text.strip())
         actions_text = ', '.join([action.strip() for action in actions])
         partners = []
