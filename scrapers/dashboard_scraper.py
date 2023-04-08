@@ -39,7 +39,7 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
         # Extract the text from the BeautifulSoup objects
         issues_text = ', '.join([issue.strip() for issue in issues])
         titles_text = ', '.join([title.strip() for title in titles])
-        partners_li_text = ', '.join([partners_li.strip() for partner in partners])
+        partners_div_text = ', '.join([partners_div.strip() for partner in partners])
         #partners_li_text = ', '.join([li.text.strip() for li in partners_li])
         status_text = ', '.join([s.text.strip() for s in status])
         status_span_text = ', '.join([sp.text.strip() for sp in status_span])
@@ -47,7 +47,7 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
         actions_text = ', '.join([action.strip() for action in actions])
 
         # Write the extracted information to the CSV file
-        writer.writerow([issues_text, titles_text, partners_li_text, status_text, updated_text, actions_text])
+        writer.writerow([issues_text, titles_text, partners_div_text, status_text, updated_text, actions_text])
 
 print("Scraping complete.")
 
