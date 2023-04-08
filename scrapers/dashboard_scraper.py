@@ -9,7 +9,7 @@ response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
 html = response.content
 
 soup = BeautifulSoup(html, features="html.parser")
-datas = soup.find_all('data-card="details"')
+datas = soup.find('data-card="details"')
 print(soup.prettify())
 
 
