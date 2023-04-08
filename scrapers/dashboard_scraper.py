@@ -17,16 +17,16 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
     writer.writerow(['Issue', 'Title', 'Partner', 'Status', 'Updated', 'Actions'])
 
 # Loop through each div and extract the desired information
-for div in divs:
-    issue = soup.find_all("p", {"data-issue-header": "index"})
-    title = soup.find_all("h3", {"data-issue-header": "title"})
-    partners = soup.find_all("div", {"data-issue": "partners"})
-    partners_li = soup.find_all("ul")
-    #this status one needs help
-    status = soup.find_all("p", {"data-issue-status": "icon"})
-    status_span = soup.find_all("span")
-    updated = soup.find_all("div", {"data-issue": "date"})
-    actions = soup.find_all("div", {"data-modal": "body"})
+    for div in divs:
+        issue = soup.find_all("p", {"data-issue-header": "index"})
+        title = soup.find_all("h3", {"data-issue-header": "title"})
+        partners = soup.find_all("div", {"data-issue": "partners"})
+        partners_li = soup.find_all("ul")
+        #this status one needs help
+        status = soup.find_all("p", {"data-issue-status": "icon"})
+        status_span = soup.find_all("span")
+        updated = soup.find_all("div", {"data-issue": "date"})
+        actions = soup.find_all("div", {"data-modal": "body"})
 
 # Write the extracted information to the CSV file
 writer.writerow([issue, title, partners, status, updated, actions])
