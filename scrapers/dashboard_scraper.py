@@ -12,7 +12,7 @@ data = requests.get(url)
 my_data = []
 
 html = BeautifulSoup(data.text, 'html.parser')
-articles = html.select('.details')
+articles = html.select('.data-card')
 
 for article in articles:
 
