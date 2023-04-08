@@ -15,8 +15,10 @@ divs = soup.find_all("div", {"data-card": "details"})
 # Loop through each div and extract the desired information
 for div in divs:
     issue = soup.find_all("p", {"data-issue-header": "index"})
+    title = soup.find_all("h3", {"data-issue-header": "title"})
 
 print("Issue:", issue)
+print("Title:", title)
 
 
 
