@@ -23,8 +23,11 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
         titles = []
         for title in div.find_all("h3", {"data-issue-header": "title"}):
             titles.append(title.text.strip())
+        partners = []
+        for partner in div.find_all("div", {"data-issue": "partners"})
+        for partners_li in div.find_all("ul"):
+            partners_li.append(partners_li.text.strip())
         partners = soup.find_all("div", {"data-issue": "partners"})
-        partners_li = soup.find_all("ul")
         #this status one needs help
         status = soup.find_all("p", {"data-issue-status": "icon"})
         status_span = soup.find_all("span")
@@ -34,8 +37,8 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
         # Extract the text from the BeautifulSoup objects
         issues_text = ', '.join([issue.strip() for issue in issues])
         titles_text = ', '.join([title.strip() for title in titles])
-        partners_text = ', '.join([p.text.strip() for p in partners])
-        partners_li_text = ', '.join([li.text.strip() for li in partners_li])
+        partners_li_text = ', '.join([partners_li.strip() for p in partners])
+        #partners_li_text = ', '.join([li.text.strip() for li in partners_li])
         status_text = ', '.join([s.text.strip() for s in status])
         status_span_text = ', '.join([sp.text.strip() for sp in status_span])
         updated_text = ', '.join([u.text.strip() for u in updated])
