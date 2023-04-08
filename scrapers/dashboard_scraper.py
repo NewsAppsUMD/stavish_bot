@@ -28,17 +28,18 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
         updated = soup.find_all("div", {"data-issue": "date"})
         actions = soup.find_all("div", {"data-modal": "body"})
 
+        # Write the extracted information to the CSV file
+        writer.writerow([issue, title, partners, status, updated, actions])
+
+print("Scraping complete.")
+
+
 #print("Issue:", issue)
 #print("Title:", title)
 #print("Partners:", partners_li)
 #print("Status:", status_span)
 #print("Updated:", updated)
 #print("Actions:", actions)
-
-# Write the extracted information to the CSV file
-writer.writerow([issue, title, partners, status, updated, actions])
-
-print("Scraping complete.")
 
 
 
