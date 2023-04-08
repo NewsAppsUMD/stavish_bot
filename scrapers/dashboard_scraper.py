@@ -34,9 +34,11 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
         update = [time.text.strip() for time in update_div.find_all("time")]
         #for update_div in div.find_all("div", {"data-issue": "date"}):
         #    updated.append(update.text.strip())
-        actions = []
-        for action in div.find_all("div", {"data-modal": "body"}):
-            actions.append(action.text.strip())
+        action = []
+        action_div = div.find("div", {"data-modal": "body"})
+        action = [p.text.strip() for p in action_div.find_all("p")]
+        #for action in div.find_all("div", {"data-modal": "body"}):
+        #    actions.append(action.text.strip())
 
         # Extract the text from the BeautifulSoup objects
         issues_text = ', '.join([issue.strip() for issue in issues])
@@ -54,10 +56,13 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
         if update_div is not None:
             update_div_text = ', '.join([time.text.strip() for time in update_div.find_all("time")])
         #updated_text = ', '.join([update.strip() for update in updated])
-        actions_text = ', '.join([action.strip() for action in actions])
+        action_div_text = ''
+        if action_div is not None:
+            action_div_text = ', '.join([p.text.strip() for p in action_div.find_all("p")])
+        #action_div_text = ', '.join([action.strip() for action in actions])
 
         # Write the extracted information to the CSV file
-        writer.writerow([issues_text, titles_text, partners_div_text, status_p_text, update_div_text, actions_text])
+        writer.writerow([issues_text, titles_text, partners_div_text, status_p_text, update_div_text, action_div_text])
 
 print("Scraping complete.")
 
