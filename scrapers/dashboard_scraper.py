@@ -12,6 +12,10 @@ soup = BeautifulSoup(response.content, "html.parser")
 
 divs = soup.find_all("div", {"data-card": "details"})
 
+with open('25_deamnds_table.csv', 'w', newline='') as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerow(['Issue', 'Title', 'Partner', 'Status', 'Updated', 'Actions'])
+
 # Loop through each div and extract the desired information
 for div in divs:
     issue = soup.find_all("p", {"data-issue-header": "index"})
@@ -22,16 +26,19 @@ for div in divs:
     status = soup.find_all("p", {"data-issue-status": "icon"})
     status_span = soup.find_all("span")
     updated = soup.find_all("div", {"data-issue": "date"})
-    actions = soup.find_all("div", {"data-modal": "body"}).text.strip()
+    actions = soup.find_all("div", {"data-modal": "body"})
 
-issue_text = issue.get_text()
+# Write the extracted information to the CSV file
+writer.writerow([issue, title, partners, status, updated, actions])
 
-print("Issue:", issue_text)
-print("Title:", title)
-print("Partners:", partners_li)
-print("Status:", status_span)
-print("Updated:", updated)
-print("Actions:", actions)
+print("Scraping complete.")
+
+#print("Issue:", issue)
+#print("Title:", title)
+#print("Partners:", partners_li)
+#print("Status:", status_span)
+#print("Updated:", updated)
+#print("Actions:", actions)
 
 
 
