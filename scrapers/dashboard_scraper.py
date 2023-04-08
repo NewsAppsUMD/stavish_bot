@@ -18,11 +18,11 @@ for div in divs:
     title = soup.find_all("h3", {"data-issue-header": "title"})
     partners = soup.find_all("div", {"data-issue": "partners"})
     partners_li = soup.find_all("ul")
-    #this one needs help
+    #this status one needs help
     status = soup.find_all("p", {"data-issue-status": "icon"})
     status_span = soup.find_all("span")
     updated = soup.find_all("div", {"data-issue": "date"})
-    actions = soup.find_all("div", {"data-modal": "body"})
+    actions = soup.find_all("div", {"data-modal": "body"}).text.strip()
 
 
 print("Issue:", issue)
