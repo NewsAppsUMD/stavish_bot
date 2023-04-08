@@ -34,7 +34,9 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
         update = [time.text.strip() for time in update_div.find_all("time")]
         action = ''
         action_div = div.find("div", {"data-modal": "body"})
-        action = '' if action_div is None else action_div.text.strip()
+        if action_div is not None:
+            action = action_div.text.strip()
+
 
         issues_text = ', '.join([issue.strip() for issue in issues])
         titles_text = ', '.join([title.strip() for title in titles])
