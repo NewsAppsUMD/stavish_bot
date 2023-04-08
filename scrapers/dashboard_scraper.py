@@ -39,7 +39,9 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
         # Extract the text from the BeautifulSoup objects
         issues_text = ', '.join([issue.strip() for issue in issues])
         titles_text = ', '.join([title.strip() for title in titles])
-        partners_div_text = ', '.join([partners_div.strip() for partner in partners])
+        partners_div_text = ''
+            if partners_div is not None:
+                partners_div_text = ', '.join([li.text.strip() for li in partners_div.find_all("li")])
         #partners_li_text = ', '.join([li.text.strip() for li in partners_li])
         status_text = ', '.join([s.text.strip() for s in status])
         status_span_text = ', '.join([sp.text.strip() for sp in status_span])
