@@ -19,11 +19,12 @@ for div in divs:
     partners = soup.find_all("div", {"data-issue": "partners"})
     partners_li = soup.find_all("ul")
     status = soup.find_all("p", {"data-issue-status": "icon"})
+    status_span = soup.find_all("span")
 
 print("Issue:", issue)
 print("Title:", title)
 print("Partners:", partners_li)
-print("Status:", status)
+print("Status:", status_span)
 
 
 
