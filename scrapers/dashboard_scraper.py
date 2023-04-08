@@ -7,7 +7,7 @@ from pprint import pprint
 url = 'https://diversity.umd.edu/black-student-leaders'
 response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
 
-soup = BeautifulSoup(html, features="html.parser")
+soup = BeautifulSoup(response.content, "html.parser")
 
 divs = soup.find_all("div", {"data-card": "details"})
 
