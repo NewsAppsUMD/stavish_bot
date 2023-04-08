@@ -19,7 +19,7 @@ my_data = []
 
 
 html = BeautifulSoup(data.text, 'html.parser')
-articles = html.select('d.list')
+articles = html.select('d.data-issues-card')
 
 
 for article in articles:
