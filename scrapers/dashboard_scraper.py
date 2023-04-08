@@ -33,8 +33,9 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
         update_div = div.find("div", {"data-issue": "date"})
         update = [time.text.strip() for time in update_div.find_all("time")]
         actions = []
-        for action in div.find_all("div", {"class": "rich-text"}):
-            actions.append(action.text.strip())
+        actions_divs = div.find_all("div", {"class": "rich-text"})
+        if actions_divs:
+            actions.append(actions_divs[0].text.strip())
 
 
 
