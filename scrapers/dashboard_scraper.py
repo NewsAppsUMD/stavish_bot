@@ -32,7 +32,7 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
         update = []
         update_div = div.find("div", {"data-issue": "date"})
         update = [time.text.strip() for time in update_div.find_all("time")]
-        action = []
+        action = ''
         action_div = div.find("div", {"data-modal": "body"})
         action = '' if action_div is None else action_div.text.strip()
 
@@ -48,7 +48,6 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
         update_div_text = ''
         if update_div is not None:
             update_div_text = ', '.join([time.text.strip() for time in update_div.find_all("time")])
-        action_div_text = ''
         if action_div is not None:
             action_div_text = ', '.join([p.text.strip() for p in action_div.find_all("p")])
         writer.writerow([issues_text, titles_text, partners_div_text, status_p_text, update_div_text, action_div_text])
