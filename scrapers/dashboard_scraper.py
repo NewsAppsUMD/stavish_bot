@@ -24,9 +24,14 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
         for title in div.find_all("h3", {"data-issue-header": "title"}):
             titles.append(title.text.strip())
         actions = []
-        for action in div.find_all("umd-modal", {"data-card": "modal"}):
-            actions.append(action.text.strip())
-        actions_text = ', '.join([action.strip() for action in actions])
+        actions_umd_modal = div.find("umd-modal", {"data-card": "modal"})
+        actions = [p.text.strip() for p in actions_umd_modal.find_all("p")]
+
+        actions_umd_modal_text = ''
+        if actions_umd_modal is not None:
+            actions_umd_modal_text = ', '.join([p.text.strip() for p in actions_umd_modal.find_all("p")])
+        
+        #actions_text = ', '.join([action.strip() for action in actions])
         partners = []
         partners_div = div.find("div", {"data-issue": "partners"})
         partners = [li.text.strip() for li in partners_div.find_all("li")]
