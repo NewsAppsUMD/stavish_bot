@@ -16,21 +16,21 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow(['Issue', 'Title', 'Partner', 'Status', 'Updated', 'Actions'])
 
-for div in divs:
-    issues = []
-    for issue in soup.find_all("p", {"data-issue-header": "index"}):
-        issues.append(issue.text.strip())
-    title = soup.find_all("h3", {"data-issue-header": "title"})
-    partners = soup.find_all("div", {"data-issue": "partners"})
-    partners_li = soup.find_all("ul")
-    #this status one needs help
-    status = soup.find_all("p", {"data-issue-status": "icon"})
-    status_span = soup.find_all("span")
-    updated = soup.find_all("div", {"data-issue": "date"})
-    actions = soup.find_all("div", {"data-modal": "body"})
+    for div in divs:
+        issues = []
+        for issue in soup.find_all("p", {"data-issue-header": "index"}):
+            issues.append(issue.text.strip())
+        title = soup.find_all("h3", {"data-issue-header": "title"})
+        partners = soup.find_all("div", {"data-issue": "partners"})
+        partners_li = soup.find_all("ul")
+        #this status one needs help
+        status = soup.find_all("p", {"data-issue-status": "icon"})
+        status_span = soup.find_all("span")
+        updated = soup.find_all("div", {"data-issue": "date"})
+        actions = soup.find_all("div", {"data-modal": "body"})
 
-# Write the extracted information to the CSV file
-writer.writerow([issue, title, partners, status, updated, actions])
+        # Write the extracted information to the CSV file
+        writer.writerow([issue, title, partners, status, updated, actions])
 
 print("Scraping complete.")
 
