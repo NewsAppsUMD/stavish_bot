@@ -19,7 +19,7 @@ for div in divs:
 
 # Extract the partners from the <div> element with data-issue="partners"
     partners_soup = soup.find_all("div", {"data-issue": "partners"})
-    partners = for partner in partners_soup.find_all("li")
+    partners = partners_soup.find_all("li")
 
 print("Issue:", issue)
 print("Title:", title)
