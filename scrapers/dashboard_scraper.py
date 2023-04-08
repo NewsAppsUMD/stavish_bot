@@ -18,7 +18,7 @@ for div in divs:
     title = soup.find_all("h3", {"data-issue-header": "title"})
     partners = soup.find_all("div", {"data-issue": "partners"})
     partners_li = soup.find_all("ul")
-    status = soup.find_all("span", {"aira-hidden": "true"})
+    status = soup.find_all("p", {"data-issue-status": "icon"})
     status_span = soup.find_all("span")
 
 print("Issue:", issue)
