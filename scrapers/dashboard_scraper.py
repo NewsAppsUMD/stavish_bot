@@ -12,7 +12,7 @@ soup = BeautifulSoup(response.content, "html.parser")
 
 divs = soup.find_all("div", {"data-card": "details"})
 
-with open('25_deamnds_table.csv', 'w', newline='') as csvfile:
+with open('25_demands_table.csv', 'w', newline='') as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow(['Issue', 'Title', 'Partner', 'Status', 'Updated', 'Actions'])
 
