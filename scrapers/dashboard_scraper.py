@@ -13,7 +13,7 @@ soup = BeautifulSoup(response.content, "html.parser")
 divs = soup.find_all("div", {"data-card": "details"})
 
 for div in divs:
-    issue = ("p", {"data-issue-header": "index"}):
+    issue = ("p", {"data-issue-header": "index"})
         all_issue = [issue.text for issue in issue]
         all_issue[0:25]
     title = soup.find_all("h3", {"data-issue-header": "title"})
