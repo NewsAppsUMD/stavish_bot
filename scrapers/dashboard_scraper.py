@@ -18,7 +18,7 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
 
     # Loop through each div and extract the desired information
     for div in divs:
-        issue = soup.find_all("p", {"data-issue-header": "index"})
+        issue = soup.find_all("p", {"data-issue-header": "index"}).text.strip()
         title = soup.find_all("h3", {"data-issue-header": "title"})
         partners = soup.find_all("div", {"data-issue": "partners"})
         partners_li = soup.find_all("ul")
