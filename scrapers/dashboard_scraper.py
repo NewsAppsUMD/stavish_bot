@@ -13,7 +13,8 @@ response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
 
 data = requests.get(url)
 
-html = BeautifulSoup(data.text, 'html.parser')
+# Parse the html content
+soup = BeautifulSoup(html_content, "lxml")
 
 datas = soup.find_all("details")
 
