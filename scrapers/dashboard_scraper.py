@@ -21,7 +21,7 @@ for div in divs:
     #this one needs help
     status = soup.find_all("p", {"data-issue-status": "icon"})
     status_span = soup.find_all("span")
-    updated = soup.find_all("span", {"data-issue-date": "title"})
+    updated = soup.find_all("div", {"data-issue": "date"})
 
 
 print("Issue:", issue)
