@@ -17,9 +17,9 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
     writer.writerow(['Issue', 'Title', 'Partner', 'Status', 'Updated', 'Actions'])
 
     for div in divs:
-        issues = []
+        issue = []
         for issue in soup.find_all("p", {"data-issue-header": "index"}):
-            issues.append(issue.text.strip())
+            issue.append(issue.get.text())
         title = soup.find_all("h3", {"data-issue-header": "title"})
         partners = soup.find_all("div", {"data-issue": "partners"})
         partners_li = soup.find_all("ul")
@@ -28,7 +28,6 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
         status_span = soup.find_all("span")
         updated = soup.find_all("div", {"data-issue": "date"})
         actions = soup.find_all("div", {"data-modal": "body"})
-        actions.get_text()
 
         # Write the extracted information to the CSV file
         writer.writerow([issue, title, partners, status, updated, actions])
