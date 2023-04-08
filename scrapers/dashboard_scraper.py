@@ -28,7 +28,7 @@ print("Issue:", issue)
 print("Title:", title)
 print("Partners:", partners_li)
 print("Status:", status_span)
-print("Updated:" updated)
+print("Updated:", updated)
 
 
 
