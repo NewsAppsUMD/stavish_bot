@@ -23,7 +23,7 @@ for div in divs:
 print("Issue:", issue)
 print("Title:", title)
 print("Partners:", partners_li)
-print("Dtatus:", status)
+print("Status:", status)
 
 
 
