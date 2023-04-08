@@ -27,8 +27,9 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
         partners_div = div.find("div", {"data-issue": "partners"})
         partners = [li.text.strip() for li in partners_div.find_all("li")]
         #this status one needs help
-        status = soup.find_all("p", {"data-issue-status": "icon"})
-        status_span = soup.find_all("span")
+        status = []
+        status_p = div.find("p", {"data-issue-status": "icon"})
+        status = [span.text.strip() for span in status_p.find_all("span")]
         updated = []
         for update in div.find_all("div", {"data-issue": "date"}):
             updated.append(update.text.strip())
@@ -43,13 +44,16 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
         if partners_div is not None:
             partners_div_text = ', '.join([li.text.strip() for li in partners_div.find_all("li")])
         #partners_li_text = ', '.join([li.text.strip() for li in partners_li])
-        status_text = ', '.join([s.text.strip() for s in status])
-        status_span_text = ', '.join([sp.text.strip() for sp in status_span])
+        status_p_text = ''
+        if status_p is not None:
+            status_p_text = ', '.join([span.text.strip() for span in status_p.find_all("span")])
+        #status_text = ', '.join([s.text.strip() for s in status])
+        #status_span_text = ', '.join([sp.text.strip() for sp in status_span])
         updated_text = ', '.join([update.strip() for update in updated])
         actions_text = ', '.join([action.strip() for action in actions])
 
         # Write the extracted information to the CSV file
-        writer.writerow([issues_text, titles_text, partners_div_text, status_text, updated_text, actions_text])
+        writer.writerow([issues_text, titles_text, partners_div_text, status_p_text, updated_text, actions_text])
 
 print("Scraping complete.")
 
