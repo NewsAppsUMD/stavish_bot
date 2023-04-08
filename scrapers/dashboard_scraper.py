@@ -35,8 +35,8 @@ print("Status:", status_span)
 print("Updated:", updated)
 print("Actions:", actions)
 
-        # Write the extracted information to the CSV file
-        writer.writerow([issue, title, partners, status, updated, actions])
+    # Write the extracted information to the CSV file
+    writer.writerow([issue, title, partners, status, updated, actions])
 
 print("Scraping complete.")
 
