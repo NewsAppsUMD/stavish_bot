@@ -63,8 +63,8 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
             update_div_text = ', '.join([time.text.strip() for time in update_div.find_all("time")])
         # action join
         action_umd_modal_text = ', '.join([p.strip() for p in actions])
-        if actions_div is not None:
-            actions_div_text = ', '.join([p.text.strip() for p in actions_div.find_all("p")])
+        if action_umd_modal is not None:
+            action_umd_modal_text = ', '.join([p.text.strip() for p in action_umd_modal.find_all("p")])
 
 # write it out to csv
         writer.writerow([issues_text, titles_text, partners_div_text, status_p_text, update_div_text, actions_umd_modal_text])
