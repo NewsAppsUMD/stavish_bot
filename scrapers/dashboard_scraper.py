@@ -32,39 +32,30 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
         update = []
         update_div = div.find("div", {"data-issue": "date"})
         update = [time.text.strip() for time in update_div.find_all("time")]
-        #for update_div in div.find_all("div", {"data-issue": "date"}):
-        #    updated.append(update.text.strip())
         action = []
         action_div = div.find("div", {"data-modal": "body"})
-        action = [p.text.strip() for p in action_div.find_all("p")]
-        #for action in div.find_all("div", {"data-modal": "body"}):
-        #    actions.append(action.text.strip())
-
-        # Extract the text from the BeautifulSoup objects
+        if action_div is not None:
+            action = [p.text.strip() for p in action_div.find_all("p")]
+        else:
+            action = []
         issues_text = ', '.join([issue.strip() for issue in issues])
         titles_text = ', '.join([title.strip() for title in titles])
         partners_div_text = ''
         if partners_div is not None:
             partners_div_text = ', '.join([li.text.strip() for li in partners_div.find_all("li")])
-        #partners_li_text = ', '.join([li.text.strip() for li in partners_li])
         status_p_text = ''
         if status_p is not None:
             status_p_text = ', '.join([span.text.strip() for span in status_p.find_all("span")])
-        #status_text = ', '.join([s.text.strip() for s in status])
-        #status_span_text = ', '.join([sp.text.strip() for sp in status_span])
         update_div_text = ''
         if update_div is not None:
             update_div_text = ', '.join([time.text.strip() for time in update_div.find_all("time")])
-        #updated_text = ', '.join([update.strip() for update in updated])
         action_div_text = ''
         if action_div is not None:
             action_div_text = ', '.join([p.text.strip() for p in action_div.find_all("p")])
-        #action_div_text = ', '.join([action.strip() for action in actions])
-
-        # Write the extracted information to the CSV file
         writer.writerow([issues_text, titles_text, partners_div_text, status_p_text, update_div_text, action_div_text])
 
 print("Scraping complete.")
+
 
 
 
