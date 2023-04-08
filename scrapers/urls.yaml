@@ -1,0 +1,4 @@
+# urls.yaml
+---
+- name: 25_demands
+  url: https://diversity.umd.edu/black-student-leaders
