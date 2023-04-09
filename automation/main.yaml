@@ -41,7 +41,7 @@ jobs:
           from: Vstavish@gmail.com
           to: Vstavish@terpmail.umd.edu
           attachments: |
-            ./scrapers/25_demands_table.csv
+            ./scrapers/demandstable.csv
       - name: Commit and push changes
         if: always()
         run: |
