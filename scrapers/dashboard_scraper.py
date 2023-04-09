@@ -4,18 +4,31 @@ import time
 import urllib.request
 from pprint import pprint
 import csv
+import os
+import json
+import smtplib
+from email.mime.text import MIMEText
+import hashlib
 
+# website I'm scraping
 url = 'https://diversity.umd.edu/black-student-leaders'
 response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
 
+# set file in an object
+filename = "25_demands_table.csv"
+
+# beautiful soup
 soup = BeautifulSoup(response.content, "html.parser")
 
+# define big div we working in 
 divs = soup.find_all("div", {"data-card": "details"})
 
-with open('25_demands_table.csv', 'w', newline='') as csvfile:
+# organize columns of csv
+with open(filename, 'w', newline='') as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow(['Issue', 'Title', 'Partner', 'Status', 'Updated', 'Actions'])
 
+# loop through the html for each issue card on the website
     for div in divs:
         # issue loop
         issues = []
@@ -43,7 +56,7 @@ with open('25_demands_table.csv', 'w', newline='') as csvfile:
         if action_umd_modal is not None:
             actions = [p.text.strip() for p in action_umd_modal.find_all("p")]
 
-        # now we joining shit so that we just got that text
+# now we joining our results and cutting it down so that we just get the text, not the html
 
         # issues join
         issues_text = ', '.join([issue.strip() for issue in issues])
