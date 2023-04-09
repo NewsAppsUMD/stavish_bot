@@ -1,1 +1,52 @@
+name: demands
 
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: '0 23 * * *' # Runs every day at 11pm
+
+jobs:
+  scrape_and_email:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install requests bs4 pandas csv
+
+      - name: Scrape data and save to csv
+        run: python dashboard_bot/scrapers/dashboard_scraper.py
+
+      - name: Send email
+        uses: dawidd6/action-send-mail@v3.3.0
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.EMAIL }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "25 Demands Dashboard"
+          body: "The 25 demands dashboard bot ran today and found a change. You can find the results of what it scraped below."
+          from: Vstavish@gmail.com
+          to: Vstavish@icloud.com
+          attachments: |
+            ./scrapers/demandstable.csv
+      - name: Commit and push changes
+        if: always()
+        run: |
+          git config --global user.name "Your Name"
+          git config --global user.email "you@example.com"
+          git add .
+          git commit -m "Update 25 demands"
+          git push
