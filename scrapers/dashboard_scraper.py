@@ -15,7 +15,7 @@ url = 'https://diversity.umd.edu/black-student-leaders'
 response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
 
 # set file in an object
-filename = "25_demands_table.csv"
+filename = "demandstable.csv"
 
 # beautiful soup
 soup = BeautifulSoup(response.content, "html.parser")
@@ -81,6 +81,30 @@ with open(filename, 'w', newline='') as csvfile:
 
 # write it out to csv
         writer.writerow([issues_text, titles_text, partners_div_text, status_p_text, update_div_text, action_umd_modal_text])
+
+
+def send_email(from_addr, to_addr, subject, body):
+    # create SMTP session
+    s = smtplib.SMTP('smtp.gmail.com', 587)
+    s.starttls()
+    s.login(Vstavish@gmail.com, os.environ['PASSWORD'])
+
+    # check if changes were detected
+    if len(changes) > 0:
+        # add changes to body of email
+        body += '\n\nChanges since last scrape:\n'
+        for change in changes:
+            body += change + '\n'
+
+    # create message
+    msg = MIMEText(body)
+    msg['From'] = Vstavish@gmail.com
+    msg['To'] = Vstavish@icloud.com
+    msg['Subject'] = "25 demands update"
+
+    # send message
+    s.sendmail(from_addr, to_addr, msg.as_string())
+    s.quit()
 
 print("Scraping complete.")
 
